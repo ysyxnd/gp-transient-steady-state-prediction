@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    "baseline",
+    "encode_delta_frac_A",
+    "encode_delta_Tc",
+    "encode_both"
+  ],
+  "encoding": "full one-hot for negative, zero and positive",
+  "signed_continuous_disturbances_retained": true,
+  "history_size": 30,
+  "history_selection": "unrestricted nearest neighbours using complete transition descriptor",
+  "n_tests": 29
+}

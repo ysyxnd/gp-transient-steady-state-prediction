@@ -1,0 +1,40 @@
+{
+  "data_path": "cstr_transition_dataset_1000\\transition_batches_long.csv",
+  "anchor_counts": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "anchor_grid_s": [
+    0.0,
+    10.0,
+    20.0,
+    30.0,
+    50.0,
+    80.0,
+    120.0,
+    180.0,
+    260.0,
+    360.0,
+    500.0,
+    700.0,
+    900.0,
+    1100.0
+  ],
+  "history_size": 9,
+  "history_selection": "nine immediately preceding consecutive batches",
+  "n_tests": 30,
+  "test_selection_seed": 123,
+  "model_random_state": 42,
+  "outputs": [
+    "Cb",
+    "T"
+  ]
+}

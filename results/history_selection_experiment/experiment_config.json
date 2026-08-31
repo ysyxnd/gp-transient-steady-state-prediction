@@ -1,0 +1,16 @@
+{
+  "strategies": [
+    "recent",
+    "random",
+    "nearest_initial",
+    "nearest_target",
+    "nearest_transition"
+  ],
+  "history_size": 30,
+  "observed_anchor_count": 8,
+  "random_seed": 20260829,
+  "model_random_state": 42,
+  "distance_scaling": "manipulated variables already scaled",
+  "candidate_pool": "all transitions preceding each test batch",
+  "n_tests": 29
+}

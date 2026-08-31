@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or dataset, please cite the accompanying dissertation and this repository."
+title: "GP Transient Steady-State Prediction"
+type: software
+authors:
+  - family-names: "Yuan"
+    given-names: "Shiyang"
+repository-code: "https://github.com/ysyxnd/gp-transient-steady-state-prediction"
+url: "https://github.com/ysyxnd/gp-transient-steady-state-prediction"
+version: 1.0.0
+date-released: 2026-08-31
+license: MIT
+keywords:
+  - Gaussian Process regression
+  - transient completion
+  - steady-state prediction
+  - continuous stirred-tank reactor
+  - process optimisation
+

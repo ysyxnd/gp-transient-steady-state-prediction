@@ -1,0 +1,18 @@
+{
+  "data_path": "cstr_transition_dataset_1000\\transition_batches_long.csv",
+  "test_batch_path": "anchor_count_experiment\\selected_test_batches.csv",
+  "configurations": [
+    "baseline",
+    "with_distance"
+  ],
+  "distance_definition": "sqrt(delta_frac_A^2 + delta_Tc_scaled^2)",
+  "observed_anchor_count": 8,
+  "temporal_feature": "anchor_index",
+  "history_size": 9,
+  "history_selection": "nine immediately preceding consecutive batches",
+  "n_tests": 30,
+  "outputs": [
+    "Cb",
+    "T"
+  ]
+}

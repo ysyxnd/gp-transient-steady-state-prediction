@@ -1,0 +1,22 @@
+{
+  "history_sizes": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    12,
+    15,
+    20,
+    30
+  ],
+  "baseline_history_size": 9,
+  "observed_anchor_count": 8,
+  "temporal_feature": "anchor_index",
+  "history_selection": "immediately preceding consecutive batches",
+  "n_tests": 29,
+  "excluded_test_batches": [
+    28
+  ],
+  "exclusion_reason": "insufficient preceding batches for history size 30"
+}

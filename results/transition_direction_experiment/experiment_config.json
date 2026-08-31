@@ -1,0 +1,23 @@
+{
+  "strategies": [
+    "unrestricted",
+    "same_delta_frac_A",
+    "same_delta_Tc",
+    "same_both"
+  ],
+  "history_size": 30,
+  "similarity_descriptor": [
+    "u0_frac_A",
+    "u0_Tc_scaled",
+    "delta_frac_A",
+    "delta_Tc_scaled"
+  ],
+  "direction_definition": "sign, with zero treated as a separate class",
+  "n_tests": 26,
+  "excluded_test_batches": [
+    36,
+    65,
+    748
+  ],
+  "exclusion_reason": "fewer than 30 candidates for at least one direction strategy"
+}

@@ -1,0 +1,34 @@
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Test and tool caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local and temporary files
+*.tmp
+*.temp
+*.log
+~$*
+
+# Manuscript working files are not part of the reproducibility repository
+*.doc
+*.docx
+
+# Optional local reruns
+reproduced_data/
+reproduced_results/
+results/gp_completion_outputs_multi_tests/
+

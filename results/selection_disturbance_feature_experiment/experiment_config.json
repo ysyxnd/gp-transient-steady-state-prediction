@@ -1,0 +1,39 @@
+{
+  "strategies": [
+    "full",
+    "without_delta_frac_A",
+    "without_delta_Tc",
+    "initial_only",
+    "disturbance_only"
+  ],
+  "descriptors": {
+    "full": [
+      "u0_frac_A",
+      "u0_Tc_scaled",
+      "delta_frac_A",
+      "delta_Tc_scaled"
+    ],
+    "without_delta_frac_A": [
+      "u0_frac_A",
+      "u0_Tc_scaled",
+      "delta_Tc_scaled"
+    ],
+    "without_delta_Tc": [
+      "u0_frac_A",
+      "u0_Tc_scaled",
+      "delta_frac_A"
+    ],
+    "initial_only": [
+      "u0_frac_A",
+      "u0_Tc_scaled"
+    ],
+    "disturbance_only": [
+      "delta_frac_A",
+      "delta_Tc_scaled"
+    ]
+  },
+  "history_size": 30,
+  "candidate_pool": "all transitions preceding each test batch",
+  "distance": "Euclidean distance in scaled coordinates",
+  "n_tests": 29
+}

@@ -1,0 +1,36 @@
+{
+  "windows_percent": [
+    20,
+    30,
+    50,
+    70,
+    100
+  ],
+  "evaluated_windows": [
+    50,
+    70,
+    100
+  ],
+  "valid_transition_counts": {
+    "20": 3,
+    "30": 21,
+    "50": 122,
+    "70": 291,
+    "100": 1000
+  },
+  "normalization_ranges": {
+    "Cb_min": 0.0804871696168249,
+    "Cb_max": 1.4731509796724844,
+    "T_min": 313.1825187504236,
+    "T_max": 935.6671462905032
+  },
+  "window_definition": "central nested square in normalized Cb-T space; initial and final states both inside",
+  "history_size": 30,
+  "history_selection": "30 nearest eligible prior transitions",
+  "n_common_tests": 30,
+  "test_seed": 123,
+  "insufficient_windows": [
+    20,
+    30
+  ]
+}
