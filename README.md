@@ -10,7 +10,7 @@ The study investigates whether early measurements from a nonlinear continuous st
 .
 ├── code/          Python source code for data generation, experiments and the final model
 ├── data/          Simulated dataset containing 1,000 process transitions
-├── evaluation/    Fixed test-batch identifiers used for model comparison
+├── evaluation/    Fixed configuration-test and additional-holdout identifiers
 ├── results/       Published CSV results, configurations and figures
 ├── requirements.txt
 ├── CITATION.cff
@@ -61,27 +61,43 @@ The final configuration uses:
 - anchor index as the temporal coordinate;
 - 30 nearest preceding historical transitions;
 - similarity based on the initial operating condition and signed input changes;
-- separate scalar radial-basis-function Gaussian Process models for product concentration and reactor temperature.
+- separate scalar radial-basis-function Gaussian Process models for product concentration and reactor temperature;
+- a fixed prediction range covering anchor indices 8--13;
+- joint endpoint identification when the normalised changes in both outputs remain below 2% for two consecutive intervals.
 
-Run the final evaluation from the repository root:
+The true settling endpoint is not supplied during prediction. If the convergence
+criterion is not satisfied, the prediction at anchor index 13 is returned and
+the transition is flagged as unresolved.
 
-```bash
-python code/final_gp_model.py
+Reproduce the 50-transition additional holdout evaluation from the repository
+root without replacing the published outputs:
+
+```powershell
+python code/final_gp_model.py `
+  --additional-holdout-size 50 `
+  --additional-test-seed 20260901 `
+  --exclude-batches 84 93 `
+  --output-dir reproduced_results/additional_holdout_50_outputs
 ```
 
-To perform a short smoke test without replacing the published results, specify a separate output directory:
+To perform a short smoke test, add `--max-tests 2` while retaining a separate
+output directory.
 
-```bash
-python code/final_gp_model.py --max-tests 2 --output-dir reproduced_results/final_model_smoke_test
-```
-
-The published objective performance summary is available at:
+The fixed holdout identifiers and published objective performance summary are
+available at:
 
 ```text
-results/final_model_outputs/final_model_objective_summary.csv
+evaluation/selected_additional_holdout_batches.csv
+results/additional_holdout_50_outputs/final_model_objective_summary.csv
 ```
 
-Across 29 eligible fixed test transitions, the final steady-state mean absolute error was 0.00331 for product concentration and 0.645 K for reactor temperature. These corresponded to 0.247% and 0.119% of their respective test ranges. The mean observation period was approximately 19.8% of the physical settling time, representing an average waiting-time reduction of approximately 80.2%.
+Across the 50 additional holdout transitions, final-value mean absolute errors
+were 0.0102 for product concentration and 1.20 K for reactor temperature. These
+corresponded to 0.761% and 0.197% of their respective holdout ranges. The endpoint
+criterion was satisfied for 32 of 50 transitions (64%), and the selected endpoint
+differed from the simulated settling endpoint by a mean of 0.86 anchor positions.
+The first eight observations represented 23.2% of the physical settling period
+on average.
 
 ## Comparative experiments
 
@@ -114,7 +130,9 @@ Dataset generation simulates all 1,000 transitions and may take substantially lo
 
 ## Reproducibility notes
 
-- The fixed evaluation batches are stored in `evaluation/selected_test_batches.csv`.
+- The 29 fixed configuration-comparison batches are stored in `evaluation/selected_test_batches.csv`.
+- The 50 final additional-holdout batches are stored in `evaluation/selected_additional_holdout_batches.csv`.
+- The comparative experiments used the simulated endpoint as a common retrospective evaluation point; the final holdout evaluation used a fixed future range and did not use the true endpoint during prediction.
 - Random seeds and experiment settings are recorded in the source files and the JSON configuration files under `results/`.
 - Published numerical results are retained as CSV files so that reported figures and summary statistics can be inspected without rerunning every model.
 - Runtime measurements can vary with hardware and software environment.
@@ -126,4 +144,3 @@ If this repository supports your work, please cite the accompanying dissertation
 ## Licence
 
 The source code and repository contents are released under the [MIT License](LICENSE). Please retain attribution when reusing or adapting the material.
-

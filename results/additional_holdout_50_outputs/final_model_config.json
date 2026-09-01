@@ -29,6 +29,21 @@
   },
   "categorical_direction_encoding": false,
   "transition_distance_model_feature": false,
+  "true_endpoint_used_for_prediction": false,
+  "max_prediction_index": 13,
+  "convergence_threshold_fraction": 0.02,
+  "consecutive_stable_intervals": 2,
+  "endpoint_rule": "joint normalised convergence of predicted Cb and T",
+  "unresolved_rule": "use prediction at fixed maximum index and flag unresolved",
+  "evaluation_protocol": "additional holdout",
+  "additional_holdout_size": 50,
+  "additional_test_seed": 20260901,
+  "holdouts_excluded_from_history_pool": true,
+  "original_configuration_tests_excluded_from_holdout_selection": true,
+  "additional_holdout_selection_exclusions": [
+    84,
+    93
+  ],
   "model_random_state": 42,
-  "n_tests": 29
+  "n_tests": 50
 }
